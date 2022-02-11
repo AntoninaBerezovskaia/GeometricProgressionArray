@@ -6,7 +6,7 @@ public class GP {
 
     int i;
     int size = 15;
-    long gp[] = new long[size];
+    long[] gp = new long[size];
     int userStartingNumber;
     int commonRatio;
     int userChoice;
@@ -24,12 +24,16 @@ public class GP {
         System.out.println("\nWhat will be the common ratio?");
         commonRatio = scanner.nextInt();
 
+        if (userStartingNumber != 0 && commonRatio != 0) {
 
-        for (i = 0; i < gp.length; i++) {
+            for (i = 0; i < gp.length; i++) {
 
-            gp[i] = userStartingNumber * (int) Math.pow(commonRatio, i);
-            //             print all numbers in array
-            System.out.println("The " + (i + 1) + " number of array is: " + gp[i]);
+                gp[i] = userStartingNumber * (int) Math.pow(commonRatio, i);
+//print all numbers in array
+                System.out.println("The " + (i + 1) + " number of array is: " + gp[i]);
+            }
+        } else {
+            System.out.println("\nThe  starting term and the common ratio must be no-zero numbers");
         }
     }
 
@@ -51,11 +55,10 @@ public class GP {
 
 
     public void add() {
-        long[] bigger = new long[0];
-        System.out.println("Do you need additional spaces in array(yes/no)?");
+        System.out.println("\nDo you need additional spaces in array(yes/no)?");
         answer = scanner2.nextLine();
         if (answer.equalsIgnoreCase("yes")) {
-            bigger = new long[gp.length * 2];
+            long[] bigger = new long[gp.length * 2];
             for (i = 0; i < gp.length; i++) {
                 bigger[i] = gp[i];
             }
@@ -93,12 +96,15 @@ public class GP {
     public void deleteValue() {
         System.out.println("\n What number do you want to delete from the geometric progression array");
         userChoice = scanner.nextInt();
+
         long[] less = new long[gp.length - 1];
         int indexLess = 0;
         for (i = 0; i < gp.length; i++) {
             if (gp[i] != userChoice) {
                 less[indexLess] = gp[i];
                 indexLess++;
+            } else {
+                System.out.println("Please, choose the number from the geometric progression!");
             }
         }
         gp = less;
@@ -122,14 +128,16 @@ public class GP {
 
             userChoice2 = scanner.nextInt();
 
-            if (userChoice <= gp.length) {
+            if (userChoice <= gp.length && userChoice2 != 0) {
                 gp[userChoice] = userChoice2;
-            } else {
-                System.out.println("Choose the term inside the array");
-            }
 
-            for (i = 0; i < gp.length; i++) {
-                System.out.println("The " + (i + 1) + " term of the array is: " + gp[i]);
+
+                for (i = 0; i < gp.length; i++) {
+                    System.out.println("The " + (i + 1) + " term of the array is: " + gp[i]);
+                }
+
+            } else {
+                System.out.println("Choose the term inside the array, and the new value must be no-zero number");
             }
         }
 

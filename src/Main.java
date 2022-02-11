@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class main {
+public class Main {
 
 
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class main {
         firstGP.getSize();
         firstGP.changeValue();
 
-        System.out.println("Thank you for using the program");
+        System.out.println("\nThank you for using the program!");
 
     }
 }
